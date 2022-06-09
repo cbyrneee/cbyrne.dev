@@ -12,6 +12,12 @@ export default function Home({ cachedRepositories }: HomeProps) {
     <>
       <Head>
         <title>Conor Byrne • Software Developer</title>
+        <meta name="title" content="Conor Byrne • Software Developer" />
+        <meta name="description" content="I'm a 16 year old software developer from Ireland." />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Conor Byrne • Software Developer" />
+        <meta property="og:description" content="I'm a 16 year old software developer from Ireland." />
       </Head>
 
       <div className="flex flex-col gap-12">
