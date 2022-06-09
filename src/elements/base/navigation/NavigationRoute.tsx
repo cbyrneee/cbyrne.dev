@@ -17,7 +17,7 @@ export default function NavigationRoute(route: Route) {
     <Link href={route.destination} passHref>
       <a
         target={route.external ? '_blank' : ''}
-        className={`text-neutral-700 dark:text-neutral-400 transition-all select-none ${activeBasedClasses}`}
+        className={`select-none text-neutral-700 transition-all dark:text-neutral-400 ${activeBasedClasses}`}
       >
         {route.name}
       </a>

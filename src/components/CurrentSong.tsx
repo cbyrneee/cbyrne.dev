@@ -13,7 +13,7 @@ export function CurrentSong({ className }: CurrentSongProps) {
 
   const content = (text: string) => (
     <div
-      className={`text-neutral-700 dark:text-neutral-400 transition-all flex flex-row items-center gap-2 ml-12 w-full`}
+      className={`ml-12 flex w-full flex-row items-center gap-2 text-neutral-700 transition-all dark:text-neutral-400`}
     >
       <FiMusic />
       <span className="whitespace-nowrap">{text}</span>

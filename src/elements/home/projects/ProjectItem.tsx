@@ -6,8 +6,8 @@ import typography from '../../../lib/typography';
 
 export default function ProjectItem(repo: Repository) {
   const content = (arrow: boolean) => (
-    <div className="cursor-pointer hover:scale-[102%] transition-all w-full border border-1 p-4 rounded-md border-neutral-300 shadow-neutral-300 dark:border-neutral-800 dark:shadow-neutral-800 shadow-md">
-      <div className="justify-between flex flex-row items-center gap-4">
+    <div className="border-1 w-full cursor-pointer rounded-md border border-neutral-300 p-4 shadow-md shadow-neutral-300 transition-all hover:scale-[102%] dark:border-neutral-800 dark:shadow-neutral-800">
+      <div className="flex flex-row items-center justify-between gap-4">
         <div>
           <h5 className={typography.caption}>{repo.repo}</h5>
           <p className={typography.paragraph}>{repo.description}</p>
