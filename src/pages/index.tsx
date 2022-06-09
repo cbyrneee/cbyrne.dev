@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { Introduction } from '../elements/home';
 
 export default function Home() {
   return (
@@ -6,7 +7,7 @@ export default function Home() {
       <Head>
         <title>Conor Byrne • Software Developer</title>
       </Head>
-      <h1 className="text-4xl font-bold">Hello World</h1>
+      <Introduction />
     </>
   );
 }
