@@ -17,7 +17,7 @@ export function ThemeToggle() {
 
   return (
     <>
-      <button onClick={changeTheme} className="hover:opacity-70 transition-all">
+      <button onClick={changeTheme} className="text-neutral-700 dark:text-neutral-400 hover:opacity-70 transition-all">
         {currentTheme === 'dark' ? <FiSun /> : <FiMoon />}
       </button>
     </>
