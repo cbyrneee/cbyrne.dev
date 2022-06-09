@@ -7,7 +7,7 @@ export default function NavigationRoute(route: Route) {
   const [isActive, setActive] = useState(false);
 
   const router = useRouter();
-  const activeBasedClasses = isActive ? 'underline cursor-default pointer-events-none' : 'opacity-80 hover:opacity-75';
+  const activeBasedClasses = isActive ? 'underline cursor-default pointer-events-none' : 'opacity-90 hover:opacity-60';
 
   useEffect(() => {
     setActive(router.asPath === route.destination);
