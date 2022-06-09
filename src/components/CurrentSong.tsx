@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { FiMusic } from 'react-icons/fi';
-import { useLanyard, useLanyardWs } from 'use-lanyard';
+import { useLanyardWs } from 'use-lanyard';
 
 interface CurrentSongProps {
   className?: string;
