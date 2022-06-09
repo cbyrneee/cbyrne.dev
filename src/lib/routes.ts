@@ -7,6 +7,7 @@ export type Route = {
 
 const routes: Route[] = [
   { destination: '/', name: 'Home' },
+  { destination: 'mailto:hello@cbyrne.dev', name: 'Email', external: true },
   { destination: 'https://github.com/cbyrneee', name: 'Github', external: true },
 ];
 
