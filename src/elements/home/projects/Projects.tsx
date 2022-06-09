@@ -1,10 +1,24 @@
 import React from 'react';
-import usePinnedRepositories from '../../../hooks/usePinnedRepositories';
+import useSWR from 'swr';
+import fetcher from '../../../lib/fetcher';
+import { Repository } from '../../../lib/types/Repository.interface';
 import typography from '../../../lib/typography';
 import ProjectItem from './ProjectItem';
 
-export function Projects() {
-  const repositories = usePinnedRepositories('cbyrneee');
+type ProjectsProps = {
+  cachedRepositories: Repository[];
+};
+
+export function Projects({ cachedRepositories }: ProjectsProps) {
+  const { data } = useSWR<Repository[]>(`/api/projects`, fetcher, { fallbackData: cachedRepositories });
+
+  const content = () => {
+    if (data) {
+      return data.map((repo) => <ProjectItem key={repo.repo} {...repo} />);
+    } else {
+      return <p className={typography.errorParagraph}>Failed to fetch projects.</p>;
+    }
+  };
 
   return (
     <div className="flex flex-col gap-4">
@@ -12,8 +26,7 @@ export function Projects() {
       <h2 className={typography.subtitle}>
         Over the years, I have worked on various projects utilising many different languages and frameworks.
       </h2>
-
-      {repositories && repositories.map((repo) => <ProjectItem key={repo.repo} {...repo} />)}
+      {content()}
     </div>
   );
 }

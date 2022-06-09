@@ -1,7 +1,13 @@
 import Head from 'next/head';
 import { Introduction, Projects } from '../elements/home';
+import { getPinnedRepostiories } from '../lib/api/getPinnedRepositories';
+import { Repository } from '../lib/types/Repository.interface';
 
-export default function Home() {
+type HomeProps = {
+  cachedRepositories: Repository[];
+};
+
+export default function Home({ cachedRepositories }: HomeProps) {
   return (
     <>
       <Head>
@@ -10,8 +16,16 @@ export default function Home() {
 
       <div className="flex flex-col gap-12">
         <Introduction />
-        <Projects />
+        <Projects cachedRepositories={cachedRepositories} />
       </div>
     </>
   );
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      cachedRepositories: await getPinnedRepostiories(),
+    },
+  };
 }
