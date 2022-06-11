@@ -3,17 +3,12 @@ import React, { useEffect, useState } from 'react';
 import { FiSun, FiMoon } from 'react-icons/fi';
 
 export function ThemeToggle() {
-  const { theme, setTheme, systemTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
+  const changeTheme = () => setTheme(currentTheme === 'light' ? 'dark' : 'light');
+
+  // We must keep track of our own 'currentTheme' variable to fix conflicts with Next.JS' hydration
   const [currentTheme, setCurrentTheme] = useState<string | undefined>('dark');
-
-  const changeTheme = () => {
-    setTheme(currentTheme === 'light' ? 'dark' : 'light');
-  };
-
-  useEffect(() => {
-    const newTheme = theme === 'system' ? systemTheme : theme;
-    setCurrentTheme(newTheme ?? 'light');
-  }, [theme, systemTheme, currentTheme]);
+  useEffect(() => setCurrentTheme(theme), [theme, currentTheme]);
 
   return (
     <>
