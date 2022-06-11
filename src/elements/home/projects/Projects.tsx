@@ -14,7 +14,13 @@ export function Projects({ cachedRepositories }: ProjectsProps) {
 
   const content = () => {
     if (data) {
-      return data.map((repo) => <ProjectItem key={repo.repo} {...repo} />);
+      return (
+        <div className="grid grid-flow-row lg:grid-cols-2 gap-4">
+          {data.map((repo) => (
+            <ProjectItem key={repo.repo} {...repo} />
+          ))}
+        </div>
+      );
     } else {
       return <p className={typography.errorParagraph}>Failed to fetch projects.</p>;
     }
