@@ -9,7 +9,7 @@ export default function ProjectItem(repo: Repository) {
     <div className="border-1 w-full cursor-pointer rounded-md border border-neutral-300 p-4 shadow-md shadow-neutral-300 transition-all hover:scale-[102%] dark:border-neutral-800 dark:shadow-neutral-800">
       <div className="flex flex-row items-center justify-between gap-4">
         <div>
-          <h5 className={typography.caption}>{repo.repo}</h5>
+          <h5 className={`${typography.caption} capitalize`}>{repo.repo}</h5>
           <p className={typography.paragraph}>{repo.description}</p>
         </div>
 
